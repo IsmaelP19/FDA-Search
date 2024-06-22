@@ -11,21 +11,24 @@ export type Result = {
 };
 
 type ListProps = {
+    search: string;
     results: Result[];
+    page: number;
+    totalPages: number;
 }
 
-const CustomList: React.FC<ListProps> = ({ results }) => {
+const CustomList: React.FC<ListProps> = ({ search, results, page, totalPages }) => {
 
     const navigator = useNavigate()
 
 
     const handleClick = (result: Result): void => {
-        navigator(`/drugs/${result.application_number}`)
+        navigator(`/drugs/${result.application_number}`, { state: { search, results, page, totalPages } })
     }
 
     return (
         results?.length > 0 ? (
-            <List sx={{ width: '80vw', margin: '0 auto' }}>
+            <List sx={{ width: '80vw', maxWidth: '1280px', margin: '0 auto' }}>
                 {results.map((result, index) => (
                     <div key={index}>
                         <ListItemButton sx={{ padding: '0' }} onClick={() => handleClick(result)}>

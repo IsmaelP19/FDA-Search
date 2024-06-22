@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { TextField, Button, Autocomplete } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search';
 import ClearIcon from '@mui/icons-material/Clear';
@@ -7,20 +7,20 @@ import { Result } from './CustomList';
 
 
 type SearchContainerProps = {
+    options: string[];
+    setOptions: React.Dispatch<React.SetStateAction<string[]>>;
     results: Result[];
-    setResults: React.Dispatch<React.SetStateAction<Result[]>>;
+    clearResults: () => void;
     search: string;
     setSearch: React.Dispatch<React.SetStateAction<string>>;
     fetchDrugs: (search: string, page?: number) => Promise<void>;
-    setTotalPages: React.Dispatch<React.SetStateAction<number>>;
 };
 
-const SearchContainer: React.FC<SearchContainerProps> = ({ results, setResults, search, setSearch, fetchDrugs, setTotalPages }) => {
-    const [options, setOptions] = useState<string[]>([])
+const SearchContainer: React.FC<SearchContainerProps> = ({ options, setOptions, results, clearResults, search, setSearch, fetchDrugs }) => {
 
     const handleChange = async (_event: React.SyntheticEvent<Element>, value: string) => {
         setSearch(value)
-        if (value === '') {
+        if (value.trim() === '') {
             setOptions([])
             return
         }
@@ -35,13 +35,6 @@ const SearchContainer: React.FC<SearchContainerProps> = ({ results, setResults, 
     const handleSearch = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         await fetchDrugs(search)
-    }
-
-    const clearResults = () => {
-        setResults([])
-        setSearch('')
-        setOptions([])
-        setTotalPages(0)
     }
 
     return (

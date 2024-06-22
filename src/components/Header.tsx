@@ -1,13 +1,14 @@
 
 import { AppBar, Toolbar, Typography, Container } from '@mui/material';
 import MedicationIcon from '@mui/icons-material/Medication';
+// import { Link } from 'react-router-dom';
 
 const Header: React.FC = () => {
 
     return (
         <AppBar position="fixed" id="header">
             <Container>
-                <Toolbar disableGutters>
+                <Toolbar disableGutters >
                     <MedicationIcon sx={{ mr: 1 }} />
                     <Typography
                         variant="h6"

@@ -10,14 +10,30 @@
   justify-content: center;
   gap: 1em;
   margin: 0 auto;
-  max-width: 80vw;
+  max-width: 1280px;
+
+}
+
+.container-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1em;
+  margin: 0 auto;
+  max-width: 1280px;
+  width: 80vw;
+
+}
+
+.loader {
+  place-self: center;
 }
 
 .paginator {
   display: flex;
   justify-content: center;
   align-items: center;
-  maxWidth: 80vw;
+  max-width: 1280px;
   margin: 0 auto;
 }
 
@@ -27,4 +43,92 @@
 
 .link:hover {
   text-decoration: underline !important;
+}
+
+.drug-main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 2em;
+  align-items: center;
+  gap: 1em;
+
+}
+
+.drug-secondary {
+  display: flex;
+  flex-direction: column;
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+  padding: 2em;
+  gap: 1em;
+}
+
+.drug-main-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  width: 46%;
+  text-align: start;
+}
+
+.drug-secondary-item {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: start;
+  align-items: center;
+  gap: 0.1em 1em ;
+
+}
+
+.drug-products-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 2em;
+  gap: 1em;
+}
+
+.drug-products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  gap: 3em;
+  width: 100%;
+  padding: 0 1em;
+}
+
+.drug-product {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  width: 46%;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.gap-1 {
+  gap: 1em;
+
+}
+
+.bold {
+  font-weight: bold;
+
+}
+
+
+@media (max-width: 768px) {
+  .drug-main-item {
+    width: 100%;
+  }
+
+  .drug-main, .drug-secondary, .drug-products-container {
+    padding: 1.5em;
+  }
+
 }
