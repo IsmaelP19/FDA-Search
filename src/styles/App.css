@@ -1,0 +1,30 @@
+#root {
+  padding: 2rem 0 0 0;
+  width: 100%;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1em;
+  margin: 0 auto;
+  max-width: 80vw;
+}
+
+.paginator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  maxWidth: 80vw;
+  margin: 0 auto;
+}
+
+.link {
+  text-decoration: none !important;
+}
+
+.link:hover {
+  text-decoration: underline !important;
+}
